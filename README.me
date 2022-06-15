@@ -1,12 +1,13 @@
 El proceso para hashear un texto plano se representa mediante el diagrama subido en el ithub (lab3.png), el proceso es el siguiente:
 
 1.- Selecciona un texto de entrada , el cual tiene que ser de base58, el programa determinara si se respeta la base, de lo contrario solicitara ingeresar nuevamente los datos.
+1.1 .- En el caso de la lectura de un texto, esto lo leera y a partir vera si los caracteres son menores a 55, en ese caso se le rellena con una secuencia de caracteres en texto plano para que al momento de hashear el momento final sea 55 o superior.
 
 2.- Una vez tenemos la base, transformamos el texto plano en binario
 
 3.- Se aplica un XOR en base a la password
 
-4.- Transformar en ASCII para retornar finalmente el valor de Hash
+4.- Transformar en ASCII para retornar finalmente el valor de Hash (el valor retorna en forma byte, por lo que finalmente se hace conversion de bytes a string para asi luego calcular su entropia.
 
 
 
