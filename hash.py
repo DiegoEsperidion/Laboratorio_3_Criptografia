@@ -1,6 +1,6 @@
 import base58 # Se usa la libreria base58 para convertir el texto plano en base58
 import binascii #libreria para convertir el XOR obtenido en binario en ASCII
-import fileinput
+import hashlib #Libreria para encriptar con md5
 #Ingresamos la palabra a codificar en base58
 
 
@@ -39,7 +39,7 @@ def reducir(palabra,PosF,PosI,aux):
         return pal 
     
  
-#Transform a to binary
+#Transformar de Base58 a Binario
 
 def toBinary(a):
     l,m =[],[]
@@ -57,76 +57,108 @@ def ConvertXOR(arr):
     for i in range(len(arr)):
         a = str(arr[i])
         c.append(bin(xor(a,key)))
-    print("Hash en XOR: ",c)
+    print("Aplicando XOR a los binarios obtenidos con la llave:  ",c)
     return c
 
 def xor(a,b):
     y = int(a,2)^int(b,2)
-    print(format(y,"b"))
+    format(y,"b")
     return y
 
+#Iterar el valor de c para satisfacer el requerimiento de la funcion unhexlify
+def iterar(c):
+    while(c<32):
+        c=c+c/2
+    
+    while(c>126):
+        c=c-c/2
+    return int(c)
+
+#Transforma los bytes en un string
+def toString(arr):
+    return ''.join(map(chr, arr))
+
+#Transforma el binario de XOR a ASCII
 def ConvertToASCII(X):
-    arr  = b''
+    arr  = b""
     for i in range(len(X)):
         c=X[i][2:]
         c=int(c,2)
+        c=iterar(c)
         bi= binascii.unhexlify('%x' % c)
-        print(c)
-        print(bi)
         arr = arr + bi
-    return arr
-
+    return toString(arr)
+#Ajusta el tamaño del hash a 55 caracteres como minimo
 def tamaño(tam,hash):
     if(tam<55):
         hash = rellenar(hash,0)
+        print(hash)
         return hash
-    elif(tam>55):
-        aux = []
-        aux2 =" "
-        red = reducir(hash,tam-1,0,aux)
-        for v in red
-            aux2 = aux2+v
-        hash = aux2
-   return hash
 
-def Iniciar(0):
-    print("Ingrese el hash a codificar: ")
-    hash = input()
-    tam = len(hash)
-    hash = tamaño(tam,hash)
-    a = b58(hash)
-    print("Mensaje codificado: " + a)
+
+
+
+
+#Comienza el programa
+def Iniciar(palabra):
+    tam = len(palabra)
+    palabra = tamaño(tam,palabra)
+    a = b58(palabra)
+    print("Mensaje codificado a base58: " + a)
     print("")
-    print("Hash en binario: ")
+    print("Base58 a binario: ")
     print(toBinary(a))
     print("")
     arr = toBinary(a)
     X = ConvertXOR(arr)
     print("")
-    print(ConvertToASCII(X))
-    return 0
+    pf=ConvertToASCII(X)
+    print("Hash final en ASCII: ", pf)
+    return pf
 
-Iniciar(0)
+#Iniciar()
 
-
-
-
-
-#a = X[0][2:]
-#a = int(a ,2)
-#print(bin(a))
-#print(a)
-#
-#print(binascii.unhexlify('%x' % a))
-
-
-
-
+#Leer un archivo .txt y extraer una palabra por linea en formato de texto plano
+def leerArchivo(a):
+    archivo = open(a,"r")
+    palabras = []
+    for linea in archivo:
+        print("Palabra n° ", len(palabras)+1)
+        print(linea)
+        pf = Iniciar(linea)
+        print("==========================================================")
+        palabras.append(linea)
+    return pf
 
 
+def leerArchivosinImprimir(a):
+    archivo = open(a,"r")
+    palabras = []
+    for linea in archivo:
+        palabras.append(linea)
+    return palabras
+
+#Calculo de hash de palabras en md5,sha1 y sha256 
+def md5(palabras):
+    hash = hashlib.md5(palabras.encode())
+    print(hash)
+    print("Hash de la palabra: ", hash.hexdigest())
+    print("==========================================================")
+    return hash.hexdigest()
+
+def sha1(palabras):
+    hash = hashlib.sha1(palabras.encode())
+    print("Hash de la palabra: ", hash.hexdigest())
+    print("==========================================================")
+    return hash.hexdigest()
+
+def sha256(palabras):
+    hash = hashlib.sha256(palabras.encode())
+    print("Hash de la palabra: ", hash.hexdigest())
+    print("==========================================================")
+    return hash.hexdigest()
 
 
-
-#Implement XOR of two binary numbers
+#Calcular cantidad de caracteres de una palabra
 
 
