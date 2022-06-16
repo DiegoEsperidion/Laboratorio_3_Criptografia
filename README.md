@@ -18,9 +18,9 @@ El proceso para hashear un texto plano se representa mediante el diagrama subido
 La forma para visualizar lo mencionado en un esquema, se encuentra en el archivo **Lab3.png**
 [Imagen](Lab3.png)
 
-Todas las funciones que realizan este proceso se encuentran en el archivo **hash.py** y el codigo que es necesario para ejecutarlo es el archivo **decision.py**.
+Todas las funciones que realizan este proceso se encuentran en el archivo [hash.py](hash.py)y el codigo que es necesario para ejecutarlo es el archivo [decision.py](decision.py).
 
-Por ultimo la entropia se implemento en el archivo **entropia.py** y en este caso se implemento el uso de comprobar manualmente si la entropia cambia respecto a una palabra u otra (SPOILER: no), lo unico que hay que hacer es ir  cambiando la variable "pal" y a comparar.
+Por ultimo la entropia se implemento en el archivo [entropia.py](entropia.py) y en este caso se implemento el uso de comprobar manualmente si la entropia cambia respecto a una palabra u otra (SPOILER: no), lo unico que hay que hacer es ir  cambiando la variable "pal" y a comparar.
 
 Como agregado adicional, si se desea ver todo el proceso funcionando y sin necesidad de ejecutarlo, a continuacion se encuentra un enlace que lo redirigirá a un video de youtube explicando todo el proceso.
 
