@@ -1,4 +1,5 @@
-from hash import leerArchivo , leerArchivosinImprimir , md5,sha1
+from hash import leerArchivo , leerArchivosinImprimir , md5,sha1,sha256
+import time
 
 def main():
     print("Seleccione el archivo a leer: ")
@@ -12,16 +13,28 @@ def main():
     d= input()
 
     if(d=="1"):
+        Inicio=time.time()
         leerArchivo("1.txt")
+        Termino=time.time()
+        print("Tiempo de ejecucion: ", Termino-Inicio)
         return 0
     elif(d=="2"):
+        Inicio=time.time()
         leerArchivo("10.txt")
+        Termino=time.time()
+        print("Tiempo de ejecucion: ", Termino-Inicio)
         return 0
     elif(d=="3"):
+        Inicio=time.time()
         leerArchivo("20.txt")
+        Termino=time.time()
+        print("Tiempo de ejecucion: ", Termino-Inicio)
         return 0
     elif(d=="4"):
+        Inicio=time.time()        
         leerArchivo("50.txt")
+        Termino=time.time()
+        print("Tiempo de ejecucion: ", Termino-Inicio)
         return 0
     elif(d=="5"):
         print("Ingrese si desea calcular con md5 ,sha1 o sha256: ")
@@ -41,13 +54,25 @@ def main():
             d= input()
 
             if(d=="1"):
+                Inicio=time.time()
                 md5(leerArchivosinImprimir("1.txt"))
+                Termino=time.time()
+                print("Tiempo de ejecucion: ", Termino-Inicio)
             elif(d=="2"):
+                Inicio=time.time()
                 md5(leerArchivosinImprimir("10.txt"))
+                Termino=time.time()
+                print("Tiempo de ejecucion: ", Termino-Inicio)
             elif(d=="3"):
+                Inicio=time.time()
                 md5(leerArchivosinImprimir("20.txt"))
+                Termino=time.time()
+                print("Tiempo de ejecucion: ", Termino-Inicio)
             elif(d=="4"):
+                Inicio=time.time()
                 md5(leerArchivosinImprimir("50.txt"))
+                Termino=time.time()
+                print("Tiempo de ejecucion: ", Termino-Inicio)
             else:
                 print("Intentelo de nuevo")
                 main()
@@ -63,13 +88,25 @@ def main():
 
 
             if(d=="1"):
+                Inicio=time.time()
                 sha1(leerArchivosinImprimir("1.txt"))
+                Termino=time.time()
+                print("Tiempo de ejecucion: ", Termino-Inicio)
             elif(d=="2"):
+                Inicio=time.time()
                 sha1(leerArchivosinImprimir("10.txt"))
+                Termino=time.time()
+                print("Tiempo de ejecucion: ", Termino-Inicio)
             elif(d=="3"):
+                Inicio=time.time()
                 sha1(leerArchivosinImprimir("20.txt"))
+                Termino=time.time()
+                print("Tiempo de ejecucion: ", Termino-Inicio)
             elif(d=="4"):
+                Inicio=time.time()
                 sha1(leerArchivosinImprimir("50.txt"))
+                Termino=time.time()
+                print("Tiempo de ejecucion: ", Termino-Inicio)
             else:
                 print("Intentelo de nuevo")
                 main()
@@ -84,13 +121,25 @@ def main():
             d= input()
 
             if(d=="1"):
+                Inicio=time.time()
                 sha256(leerArchivosinImprimir("1.txt"))
+                Termino=time.time()
+                print("Tiempo de ejecucion: ", Termino-Inicio)
             elif(d=="2"):
+                Inicio=time.time()
                 sha256(leerArchivosinImprimir("10.txt"))
+                Termino=time.time()
+                print("Tiempo de ejecucion: ", Termino-Inicio)
             elif(d=="3"):
+                Inicio=time.time()
                 sha256(leerArchivosinImprimir("20.txt"))
+                Termino=time.time()
+                print("Tiempo de ejecucion: ", Termino-Inicio)
             elif(d=="4"):
+                Inicio=time.time()
                 sha256(leerArchivosinImprimir("50.txt"))
+                Termino=time.time()
+                print("Tiempo de ejecucion: ", Termino-Inicio)
             else:
                 print("Intentelo de nuevo")
                 main()

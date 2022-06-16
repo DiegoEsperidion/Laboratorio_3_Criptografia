@@ -1,6 +1,6 @@
 import base58 # Se usa la libreria base58 para convertir el texto plano en base58
 import binascii #libreria para convertir el XOR obtenido en binario en ASCII
-import hashlib #Libreria para encriptar con md5
+import hashlib #Libreria para encriptar con md5,sha1 y sha256
 #Ingresamos la palabra a codificar en base58
 
 
@@ -16,7 +16,7 @@ def rellenar(palabra,pos):
     salt=["1","A","a","B","b","C","c"]
     if pos == len(salt):
         pos=0
-    if len(palabra) <55:
+    if len(palabra) <40:
         pal=palabra+salt[pos]
         pos=pos+1
         pal=rellenar(pal,pos)
@@ -114,6 +114,7 @@ def Iniciar(palabra):
     print("")
     pf=ConvertToASCII(X)
     print("Hash final en ASCII: ", pf)
+    print("Largo del hash: ",len(pf))
     return pf
 
 #Iniciar()
@@ -140,25 +141,42 @@ def leerArchivosinImprimir(a):
 
 #Calculo de hash de palabras en md5,sha1 y sha256 
 def md5(palabras):
-    hash = hashlib.md5(palabras.encode())
-    print(hash)
-    print("Hash de la palabra: ", hash.hexdigest())
-    print("==========================================================")
+    for word in palabras:
+        hash = hashlib.md5(word.encode())
+        print("Hash de la palabra en md5: ", hash.hexdigest())
+        print("==========================================================")
     return hash.hexdigest()
 
 def sha1(palabras):
-    hash = hashlib.sha1(palabras.encode())
-    print("Hash de la palabra: ", hash.hexdigest())
-    print("==========================================================")
+    for word in palabras:
+        hash = hashlib.sha1(word.encode())
+        print("Hash de la palabra en sha1: ", hash.hexdigest())
+        print("==========================================================")
     return hash.hexdigest()
 
 def sha256(palabras):
-    hash = hashlib.sha256(palabras.encode())
-    print("Hash de la palabra: ", hash.hexdigest())
-    print("==========================================================")
+    for word in palabras:
+        hash = hashlib.sha256(word.encode())
+        print("Hash de la palabra en sha256: ", hash.hexdigest())
+        print("==========================================================")
     return hash.hexdigest()
 
 
-#Calcular cantidad de caracteres de una palabra
+#Calcular md5 de solo 1 palabra
+def md5solo(palabra):
+    hash = hashlib.md5(palabra.encode())
+    print("Hash de la palabra en md5: ", hash.hexdigest())
+    return hash.hexdigest()
 
+#Lo mismo con sha1 y sha256
+def sha1solo(palabra):
+    hash = hashlib.sha1(palabra.encode())
+    print("Hash de la palabra en sha1: ", hash.hexdigest())
+    return hash.hexdigest()
 
+def sha256solo(palabra):
+    hash = hashlib.sha256(palabra.encode())
+    print("Hash de la palabra en sha256: ", hash.hexdigest())
+    return hash.hexdigest()
+
+#k<%%,-kh,+h&!/(08!/!93%d'()h+%/>*'*i>030'-)%h"4:+(-?'?-
