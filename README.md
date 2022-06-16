@@ -16,7 +16,7 @@ El proceso para hashear un texto plano se representa mediante el diagrama subido
 # Adicional
 
 La forma para visualizar lo mencionado en un esquema, se encuentra en el archivo **Lab3.png**
-
+[Imagen](Laboratorio_3_Criptografia/Lab3.png)
 
 Todas las funciones que realizan este proceso se encuentran en el archivo **hash.py** y el codigo que es necesario para ejecutarlo es el archivo **decision.py**.
 
