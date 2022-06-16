@@ -1,4 +1,4 @@
-#Instrucciones
+# Instrucciones
 
 El proceso para hashear un texto plano se representa mediante el diagrama subido en el ithub (lab3.png), el proceso es el siguiente:
 
@@ -13,7 +13,7 @@ El proceso para hashear un texto plano se representa mediante el diagrama subido
 4.- Transformar en ASCII para retornar finalmente el valor de Hash (el valor retorna en forma byte, por lo que finalmente se hace conversion de bytes a string para asi luego calcular su entropia.)
 
 
-#Adicional
+# Adicional
 
 La forma para visualizar lo mencionado en un esquema, se encuentra en el archivo **Lab3.png**
 
