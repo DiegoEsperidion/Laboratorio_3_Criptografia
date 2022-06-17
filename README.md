@@ -29,5 +29,6 @@ Como agregado, si se desea ver todo el proceso funcionando y sin necesidad de ej
 
 UPDATE: Se implemento la entropia dentro del codigo [hash.py](hash.py) de manera de poder visualizar cada palabra del texto su entropia, de igual forma esto no afecta los datos, y se mantiene el archivo **entropia.py** para su uso de forma manual 
 
-[Video Youtube](https://youtu.be/O0ZtRBe5IGk)
+[Video Youtube: Parte 1](https://youtu.be/O0ZtRBe5IGk)
+[Video Youtube: Parte 2](https://youtu.be/Ht50mwRNrKk)
 
