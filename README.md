@@ -26,5 +26,8 @@ Por ultimo la entropia se implemento en el archivo [entropia.py](entropia.py) y 
 
 Como agregado, si se desea ver todo el proceso funcionando y sin necesidad de ejecutarlo, a continuacion se encuentra un enlace que lo redirigirá a un video de youtube explicando todo el proceso.
 
+
+UPDATE: Se implemento la entropia dentro del codigo [hash.py](hash.py) de manera de poder visualizar cada palabra del texto su entropia, de igual forma esto no afecta los datos, y se mantiene el archivo **entropia.py** para su uso de forma manual 
+
 [Video Youtube](https://youtu.be/O0ZtRBe5IGk)
 
