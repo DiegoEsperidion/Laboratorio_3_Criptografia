@@ -1,6 +1,7 @@
 import base58 # Se usa la libreria base58 para convertir el texto plano en base58
 import binascii #libreria para convertir el XOR obtenido en binario en ASCII
 import hashlib #Libreria para encriptar con md5,sha1 y sha256
+from math import log #Libreria para calcular la entropia
 #Ingresamos la palabra a codificar en base58
 
 
@@ -9,10 +10,12 @@ def b58(hash):
     a = base58.b58encode(hash.encode()).decode() 
     return a
 
-#Rellenar la palabra con caracteres especificos de manera de cumplir el largo de caracteres solicitados
+#Rellenar la palabra con caracteres especificos de manera de cumplir 
+# el largo de caracteres solicitados
 
 def rellenar(palabra,pos):
-    #cEsta funcion rellena una palabra menor a 55 caracteres con los caracteres contenidos en salt, se termina al tener 55 caracteres.
+    #Esta funcion rellena una palabra menor a 55 caracteres con los
+    # caracteres contenidos en salt, se termina al tener 55 caracteres.
     salt=["1","A","a","B","b","C","c"]
     if pos == len(salt):
         pos=0
@@ -25,8 +28,10 @@ def rellenar(palabra,pos):
         return palabra
 
 def reducir(palabra,PosF,PosI,aux):
-    #reduce una palabra mayor a 55 digitos, para esto suma el valor unicode en digitos de la palabra en las posiciones PosF y PosI, 
-    #las cuales comienzan en el final e inicio respectivamete, luego lo agrega al auxiliar.
+    #reduce una palabra mayor a 55 digitos, para esto suma el valor unicode 
+    # en digitos de la palabra en las posiciones PosF y PosI, 
+    #las cuales comienzan en el final e inicio respectivamete, 
+    # luego lo agrega al auxiliar.
     if len(aux)==55:
         return aux
     else:
@@ -127,6 +132,7 @@ def leerArchivo(a):
         print("Palabra n° ", len(palabras)+1)
         print(linea)
         pf = Iniciar(linea)
+        entropia(pf)
         print("==========================================================")
         palabras.append(linea)
     return pf
@@ -144,6 +150,7 @@ def md5(palabras):
     for word in palabras:
         hash = hashlib.md5(word.encode())
         print("Hash de la palabra en md5: ", hash.hexdigest())
+        entropiahash(hash.hexdigest())
         print("==========================================================")
     return hash.hexdigest()
 
@@ -151,6 +158,7 @@ def sha1(palabras):
     for word in palabras:
         hash = hashlib.sha1(word.encode())
         print("Hash de la palabra en sha1: ", hash.hexdigest())
+        entropiahash(hash.hexdigest())
         print("==========================================================")
     return hash.hexdigest()
 
@@ -158,6 +166,7 @@ def sha256(palabras):
     for word in palabras:
         hash = hashlib.sha256(word.encode())
         print("Hash de la palabra en sha256: ", hash.hexdigest())
+        entropiahash(hash.hexdigest())
         print("==========================================================")
     return hash.hexdigest()
 
@@ -178,5 +187,23 @@ def sha256solo(palabra):
     hash = hashlib.sha256(palabra.encode())
     print("Hash de la palabra en sha256: ", hash.hexdigest())
     return hash.hexdigest()
+
+def entropia(palabra):
+    L = len(palabra)
+    N = 94
+    H = L*log(N,2)
+    print("Entropia del hash: ", H)
+    print("")
+    print("")
+    return H
+
+def entropiahash(palabra):
+    L = len(palabra)
+    N = 36
+    H = L*log(N,2)
+    print("Entropia del hash: ", H)
+    print("")
+    print("")
+    return H
 
 #k<%%,-kh,+h&!/(08!/!93%d'()h+%/>*'*i>030'-)%h"4:+(-?'?-
