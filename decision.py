@@ -1,4 +1,4 @@
-from hash import leerArchivo , leerArchivosinImprimir , md5,sha1,sha256
+from hash import Iniciar, leerArchivo , leerArchivosinImprimir , md5,sha1,sha256,entropia,md5solo,sha1solo,sha256solo
 import time
 
 def main():
@@ -8,7 +8,8 @@ def main():
     print("2. 10 caracteres")
     print("3. 20 caracteres")
     print("4. 50 caracteres")
-    print("5. Otra cosa")
+    print("5. Otro método de hash")
+    print("6. Ingresar una palabra")
 
     d= input()
 
@@ -45,12 +46,13 @@ def main():
         e= input()
         print("")
         if(e=="1"):
-            print("Seleccione el archivo a leer: ")
+            print("Seleccione el archivo a leer en md5: ")
             print(" ")
             print("1. 1 caracter")
             print("2. 10 caracteres")
             print("3. 20 caracteres")
             print("4. 50 caracteres")
+            print("5. Ingresar una palabra")
             d= input()
 
             if(d=="1"):
@@ -73,17 +75,26 @@ def main():
                 md5(leerArchivosinImprimir("50.txt"))
                 Termino=time.time()
                 print("Tiempo de ejecucion: ", Termino-Inicio)
+            elif(d=="5"):
+                print("Ingrese la palabra a calcular: ")
+                pal= input()
+                Inicio=time.time()
+                md5solo(pal)
+                Termino=time.time()
+                print("Tiempo de ejecucion: ", Termino-Inicio)
+
             else:
                 print("Intentelo de nuevo")
                 main()
                 return 0
         elif(e=="2"):
-            print("Seleccione el archivo a leer: ")
+            print("Seleccione el archivo a leer en sha1: ")
             print(" ")
             print("1. 1 caracter")
             print("2. 10 caracteres")
             print("3. 20 caracteres")
             print("4. 50 caracteres")
+            print("5. Ingresar una palabra")
             d= input()
 
 
@@ -107,17 +118,25 @@ def main():
                 sha1(leerArchivosinImprimir("50.txt"))
                 Termino=time.time()
                 print("Tiempo de ejecucion: ", Termino-Inicio)
+            elif(d=="5"):
+                print("Ingrese la palabra a calcular: ")
+                pal= input()
+                Inicio=time.time()
+                sha1solo(pal)
+                Termino=time.time()
+                print("Tiempo de ejecucion: ", Termino-Inicio)
             else:
                 print("Intentelo de nuevo")
                 main()
                 return 0
         elif(e=="3"):
-            print("Seleccione el archivo a leer: ")
+            print("Seleccione el archivo a leer en sha256: ")
             print(" ")
             print("1. 1 caracter")
             print("2. 10 caracteres")
             print("3. 20 caracteres")
             print("4. 50 caracteres")
+            print("5. Ingresar una palabra")
             d= input()
 
             if(d=="1"):
@@ -140,14 +159,27 @@ def main():
                 sha256(leerArchivosinImprimir("50.txt"))
                 Termino=time.time()
                 print("Tiempo de ejecucion: ", Termino-Inicio)
+            elif(d=="5"):
+                print("Ingrese la palabra a calcular: ")
+                pal= input()
+                Inicio=time.time()
+                sha256solo(pal)
+                Termino=time.time()
+                print("Tiempo de ejecucion: ", Termino-Inicio)
             else:
                 print("Intentelo de nuevo")
                 main()
                 return 0
         elif(e=="4"):
             return 0
-    else:
-        return 0
+    elif(d=="6"):
+        print("Ingrese palabra a hashear")
+        palabra=input()
+        Inicio=time.time()
+        entropia(Iniciar(palabra))
+        Termino=time.time()
+        print("Tiempo de ejecucion: ", Termino-Inicio)
+
                
 
 main()

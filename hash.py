@@ -147,7 +147,10 @@ def leerArchivosinImprimir(a):
 
 #Calculo de hash de palabras en md5,sha1 y sha256 
 def md5(palabras):
+    i=0
     for word in palabras:
+        i=i+1
+        print("Palabra n° ", i)
         hash = hashlib.md5(word.encode())
         print("Hash de la palabra en md5: ", hash.hexdigest())
         entropiahash(hash.hexdigest())
@@ -155,7 +158,10 @@ def md5(palabras):
     return hash.hexdigest()
 
 def sha1(palabras):
+    i=0
     for word in palabras:
+        i += 1
+        print("Palabra n° ", i)
         hash = hashlib.sha1(word.encode())
         print("Hash de la palabra en sha1: ", hash.hexdigest())
         entropiahash(hash.hexdigest())
@@ -163,7 +169,10 @@ def sha1(palabras):
     return hash.hexdigest()
 
 def sha256(palabras):
+    i = 0
     for word in palabras:
+        i += 1
+        print("Palabra n° ", i)
         hash = hashlib.sha256(word.encode())
         print("Hash de la palabra en sha256: ", hash.hexdigest())
         entropiahash(hash.hexdigest())
@@ -175,17 +184,23 @@ def sha256(palabras):
 def md5solo(palabra):
     hash = hashlib.md5(palabra.encode())
     print("Hash de la palabra en md5: ", hash.hexdigest())
+    entropiahash(hash.hexdigest())
+    print("==========================================================")
     return hash.hexdigest()
 
 #Lo mismo con sha1 y sha256
 def sha1solo(palabra):
     hash = hashlib.sha1(palabra.encode())
     print("Hash de la palabra en sha1: ", hash.hexdigest())
+    entropiahash(hash.hexdigest())
+    print("==========================================================")
     return hash.hexdigest()
 
 def sha256solo(palabra):
     hash = hashlib.sha256(palabra.encode())
     print("Hash de la palabra en sha256: ", hash.hexdigest())
+    entropiahash(hash.hexdigest())
+    print("==========================================================")
     return hash.hexdigest()
 
 def entropia(palabra):
