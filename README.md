@@ -22,7 +22,7 @@ Todas las funciones que realizan este proceso se encuentran en el archivo [hash.
 
 Por ultimo la entropia se implemento en el archivo [entropia.py](entropia.py) y en este caso se implemento el uso de comprobar manualmente si la entropia cambia respecto a una palabra u otra (SPOILER: no), lo unico que hay que hacer es ir  cambiando la variable "pal" y a comparar.
 
- El analisis de los tiempos de demora y el calculo de la entropia se realizara a traves de una tabla explicada en un informe el cual se encuentra tanto en la pagina de Canvas como el apartado que se encuentra [aqui](Laboratorio_3___Hash (1).pdf)
+ El analisis de los tiempos de demora y el calculo de la entropia se realizara a traves de una tabla explicada en un informe el cual se encuentra tanto en la pagina de Canvas como el apartado que se encuentra [aqui](Laboratorio_3___Hash(1).pdf)
 
 Como agregado, si se desea ver todo el proceso funcionando y sin necesidad de ejecutarlo, a continuacion se encuentra un enlace que lo redirigirá a un video de youtube explicando todo el proceso.
 
